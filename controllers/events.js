@@ -3,11 +3,11 @@ const Event = require('../models/Event');
 
 const getEvents = async (req = request, resp = response) => {
     try {
-        const event = await Event.find().populate('user', 'name');
+        const events = await Event.find().populate('user', 'name');
         return resp.status(200).json({
             ok: true,
             msj: 'eventos obtenidos correctamente',
-            event,
+            events,
         });
     } catch (error) {
         return resp.status(500).json({
@@ -27,7 +27,7 @@ const createEvent = async (req = request, resp = response) => {
         return resp.status(201).json({
             ok: true,
             msj: 'evento creado correctamente',
-            newEvent,
+            event: newEvent,
         });
     } catch (error) {
         return resp.status(500).json({
