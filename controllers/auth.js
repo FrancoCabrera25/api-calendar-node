@@ -86,6 +86,8 @@ const renewToken = async (req = request, resp = response) => {
         ok: true,
         msg: 'renew',
         token,
+        id,
+        name
     });
 };
 
